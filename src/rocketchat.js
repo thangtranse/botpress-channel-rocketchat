@@ -3,16 +3,21 @@ import Promise from "bluebird";
 
 class RocketChat {
   constructor(bp, config) {
+    console.log("123123132312312312312313231231231231231323123123123123132312312312312313231231231231231323123123");
+
     if (!bp || !config) {
       throw new Error("You need to specify botpress and config");
     }
-
     this.config = config;
     this.connected = false;
   }
 
   async connect() {
+    console.log("123123132312312312312313231231231231231323123123123123132312312312312313231231231231231323123123");
+
     function handleChannel(channelList) {
+    console.log("123123132312312312312313231231231231231323123123123123132312312312312313231231231231231323123123");
+
       if (channelList !== undefined) {
         channelList = channelList.replace(/[^\w\,._]/gi, "").toLowerCase();
         if (channelList.match(",")) {
@@ -40,6 +45,8 @@ class RocketChat {
       await driver.joinRooms(handleChannel(this.config.ROCKETCHAT_ROOM));
       await driver.subscribeToMessages();
       this.connected = true;
+      console.log("thangtran")
+
     } catch (error) {
       console.log(error);
     }
@@ -83,7 +90,7 @@ class RocketChat {
       livechat: true,
       edited: true
     };
-    return driver.respondToMessages(async function(err, message, meta) {
+    return driver.respondToMessages(async function (err, message, meta) {
       // If message have .t so it's a system message, so ignore it
       if (message.t === undefined) {
         const user = await getOrCreateUser(message);
@@ -134,6 +141,8 @@ class RocketChat {
   }
 
   isConnected() {
+    console.log("thangtran 2")
+
     return this.connected;
   }
 

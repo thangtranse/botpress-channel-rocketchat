@@ -20,6 +20,8 @@ const handleText = (event, next, rocketchat) => {
   }
   //console.log("HANDLE TEXT")
   const text = event.text;
+  console.log("HANDLE TEXT", text)
+
   const options = {};
 
   return handlePromise(event, next, rocketchat.sendMessage(text, options, event));

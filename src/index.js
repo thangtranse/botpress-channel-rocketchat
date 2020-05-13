@@ -49,6 +49,8 @@ module.exports = {
   },
 
   init: async (bp, configurator, helpers) => {
+    console.log("123123132312312312312313231231231231231323123123123123132312312312312313231231231231231323123123");
+
     bp.middlewares.register({
       name: "rocketchat.sendMessages",
       type: "outgoing",
